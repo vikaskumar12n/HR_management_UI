@@ -58,3 +58,90 @@
 .btn-primary:hover {
   background-color: #0056b3;
 }
+
+
+.dashboard-card {
+  transition: all 0.3s ease;
+}
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Add this to your global CSS or component-specific CSS */
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #dee2e6;
+  background-color: #343a40;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #454d55;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #454d55;
+  background-color: #2c3034;
+  color: #fff;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #454d55;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+.table-dark {
+  color: #fff;
+  background-color: #343a40;
+}
+
+.table-dark th,
+.table-dark td,
+.table-dark thead th {
+  border-color: #454d55;
+}
+
+.table-dark.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-dark.table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+}
+
+/* Make table responsive */
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Button styles for dark theme */
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}
+
+.btn-warning {
+  color: #212529;
+}
+
+.btn-danger {
+  color: #fff;
+}

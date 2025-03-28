@@ -12,8 +12,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Login/>} />
 
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
@@ -23,6 +23,7 @@ function App() {
           <Route path="/leaves" element={<Leaves />} />
         </Route>
       </Routes>
+      
     </Router>
   );
 }

@@ -1,54 +1,73 @@
-import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import Employees from "./Employees";
+import Candidates from "./Candidates";
+import Attendance from "./Attendance";
+import Leaves from "./Leaves";
+import Navbar from "../components/Navbar"
 
 const Dashboard = () => {
+  const [activeComponent, setActiveComponent] = useState("employees");
+
+  const renderComponent = () => {
+    switch (activeComponent) {
+      case "employees":
+        return <Employees />;
+      case "candidates":
+        return <Candidates />;
+      case "attendance":
+        return <Attendance />;
+      case "leaves":
+        return <Leaves />;
+      default:
+        return <Employees />;
+    }
+  };
+
   return (
-    <div>
-      <Navbar />
-      <div className="container mt-4">
-        <h2>HRMS Dashboard</h2>
-        <div className="row">
-          <div className="col-md-4">
-            <div className="card text-white bg-primary mb-3">
-              <div className="card-body">
-                <h5 className="card-title">Employees</h5>
-                <p className="card-text">Manage employees in your company.</p>
-                <Link to="/employees" className="btn btn-light">View Employees</Link>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="card text-white bg-success mb-3">
-              <div className="card-body">
-                <h5 className="card-title">Candidates</h5>
-                <p className="card-text">Manage job applicants.</p>
-                <Link to="/candidates" className="btn btn-light">View Candidates</Link>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="card text-white bg-warning mb-3">
-              <div className="card-body">
-                <h5 className="card-title">Attendance</h5>
-                <p className="card-text">Track employee attendance.</p>
-                <Link to="/attendance" className="btn btn-light">View Attendance</Link>
-              </div>
-            </div>
-          </div>
+    <div className="d-flex flex-column min-vh-100 bg-light">
+    <Navbar/>
+      <div className="d-flex flex-grow-1">
+        {/* Sidebar */}
+        <div className="bg-dark text-white p-3" style={{ width: "250px" }}>
+          <ul className="nav flex-column">
+            <li className="nav-item mb-2">
+              <button
+                className={`nav-link btn btn-link text-white text-start w-100 ${activeComponent === "employees" ? "active bg-primary" : ""}`}
+                onClick={() => setActiveComponent("employees")}
+              >
+                <i className="bi bi-people-fill me-2"></i>Employees
+              </button>
+            </li>
+            <li className="nav-item mb-2">
+              <button
+                className={`nav-link btn btn-link text-white text-start w-100 ${activeComponent === "candidates" ? "active bg-primary" : ""}`}
+                onClick={() => setActiveComponent("candidates")}
+              >
+                <i className="bi bi-person-badge-fill me-2"></i>Candidates
+              </button>
+            </li>
+            <li className="nav-item mb-2">
+              <button
+                className={`nav-link btn btn-link text-white text-start w-100 ${activeComponent === "attendance" ? "active bg-primary" : ""}`}
+                onClick={() => setActiveComponent("attendance")}
+              >
+                <i className="bi bi-calendar-check-fill me-2"></i>Attendance
+              </button>
+            </li>
+            <li className="nav-item mb-2">
+              <button
+                className={`nav-link btn btn-link text-white text-start w-100 ${activeComponent === "leaves" ? "active bg-primary" : ""}`}
+                onClick={() => setActiveComponent("leaves")}
+              >
+                <i className="bi bi-door-open-fill me-2"></i>Leave Management
+              </button>
+            </li>
+          </ul>
+        </div>
 
-         
-
-          {/* Leave Management Button */}
-          <div className="col-md-4">
-            <div className="card text-white bg-danger mb-3">
-              <div className="card-body">
-                <h5 className="card-title">Leave Management</h5>
-                <p className="card-text">Manage employee leave requests.</p>
-                <Link to="/leaves" className="btn btn-light">Manage Leaves</Link>
-              </div>
-            </div>
-          </div>
-
+        {/* Main Content */}
+        <div className="flex-grow-1 p-4">
+          {renderComponent()}
         </div>
       </div>
     </div>

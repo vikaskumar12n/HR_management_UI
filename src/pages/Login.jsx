@@ -42,75 +42,110 @@ const Login = () => {
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center min-vh-100">
-      <div className="card shadow-lg p-4" style={{ width: "100%", maxWidth: "400px" }}>
-        <div className="card-body">
-          <div className="text-center mb-4">
-            <h2 className="fw-bold">Login</h2>
-            <p className="text-muted">Please enter your credentials</p>
-          </div>
-
-          {error && (
-            <div className="alert alert-danger alert-dismissible fade show" role="alert">
-              {error}
-              <button 
-                type="button" 
-                className="btn-close" 
-                onClick={() => setError("")}
-              ></button>
-            </div>
-          )}
-
-          <form onSubmit={handleLogin}>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email address</label>
-              <input 
-                type="email" 
-                className="form-control" 
-                id="email"
-                placeholder="name@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                autoFocus
-              />
-            </div>
-
-            <div className="mb-4">
-              <label htmlFor="password" className="form-label">Password</label>
-              <input 
-                type="password" 
-                className="form-control" 
-                id="password"
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-
-            <div className="d-grid mb-3">
-              <button 
-                type="submit" 
-                className="btn btn-primary btn-lg"
-                disabled={isLoading}
+    <div 
+      className="min-vh-100 d-flex justify-content-center align-items-center"
+      style={{
+        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+      }}
+    >
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-md-6 col-lg-5">
+            <div className="card border-0 shadow-lg overflow-hidden">
+              {/* Card Header with Gradient Background */}
+              <div 
+                className="card-header p-4"
+                style={{
+                  background: "linear-gradient(to right, #6a11cb 0%, #2575fc 100%)"
+                }}
               >
-                {isLoading ? (
-                  <>
-                    <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                    Logging in...
-                  </>
-                ) : "Login"}
-              </button>
-            </div>
+                <h2 className="text-white text-center mb-0 fw-bold">Welcome Back</h2>
+                <p className="text-white-50 text-center mb-0">Please login to continue</p>
+              </div>
+              
+              {/* Card Body */}
+              <div className="card-body p-4 p-md-5">
+                {error && (
+                  <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                    {error}
+                    <button 
+                      type="button" 
+                      className="btn-close" 
+                      onClick={() => setError("")}
+                    ></button>
+                  </div>
+                )}
 
-            <div className="text-center">
-              <a href="/forgot-password" className="text-decoration-none">Forgot password?</a>
+                <form onSubmit={handleLogin}>
+                  <div className="mb-3">
+                    <label htmlFor="email" className="form-label fw-semibold">Email address</label>
+                    <input 
+                      type="email" 
+                      className="form-control py-2" 
+                      id="email"
+                      placeholder="name@example.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      autoFocus
+                    />
+                  </div>
+
+                  <div className="mb-4">
+                    <label htmlFor="password" className="form-label fw-semibold">Password</label>
+                    <input 
+                      type="password" 
+                      className="form-control py-2" 
+                      id="password"
+                      placeholder="••••••••"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div className="d-grid mb-3">
+                    <button 
+                      type="submit" 
+                      className="btn btn-primary btn-lg py-2 fw-bold"
+                      disabled={isLoading}
+                      style={{
+                        background: "linear-gradient(to right, #6a11cb 0%, #2575fc 100%)",
+                        border: "none"
+                      }}
+                    >
+                      {isLoading ? (
+                        <>
+                          <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                          Logging in...
+                        </>
+                      ) : "Login"}
+                    </button>
+                  </div>
+
+                  <div className="d-flex justify-content-between align-items-center mb-4">
+                    <div className="form-check">
+                      <input className="form-check-input" type="checkbox" id="rememberMe" />
+                      <label className="form-check-label small" htmlFor="rememberMe">
+                        Remember me
+                      </label>
+                    </div>
+                    <a href="/forgot-password" className="text-decoration-none small text-primary">
+                      Forgot password?
+                    </a>
+                  </div>
+                </form>
+
+                <div className="text-center pt-3">
+                  <p className="text-muted mb-0">Don&apos;t have an account? 
+                    <a href="/register" className="text-primary fw-semibold text-decoration-none ms-1">
+                      Register
+                    </a>
+                  </p>
+                </div>
+              </div>
             </div>
-          </form>
-          <p className="text-center mt-3">
-              Don&apos;t have an account? <a href="/">Register</a>
-            </p>
+          </div>
         </div>
       </div>
     </div>

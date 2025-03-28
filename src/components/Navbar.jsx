@@ -1,5 +1,5 @@
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/authSlice";
 
@@ -14,10 +14,9 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-dark bg-dark px-3">
-      <Link className="navbar-brand" to="/dashboard">HRMS Dashboard</Link>
+      <h1 className="text-light"   >HR Dashboard</h1>
       <div>
-        <Link className="btn btn-primary mx-2" to="/employees">Employees</Link>
-        <Link className="btn btn-success mx-2" to="/candidates">Candidates</Link>
+      
         <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
       </div>
     </nav>
