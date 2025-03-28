@@ -25,10 +25,10 @@ const Employees = () => {
   }, []);
   const token = useSelector((state) => state.auth.token);
 
-  // ✅ Fetch Employees
+  //  Fetch Employees
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/employees/",
+      const res = await axios.get("https://hr-management-ln65.onrender.com/api/employees/",
         { headers: {Authorization: `Bearer ${token}` } }
 
       );
@@ -44,7 +44,7 @@ const Employees = () => {
     }
   };
 
-  // ✅ Save Employee (Add or Update)
+  //  Save Employee (Add or Update)
   const handleSave = async () => {
     try {
       if (editingEmployee) {
